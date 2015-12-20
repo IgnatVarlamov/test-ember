@@ -4,10 +4,11 @@ import Category from 'test-app/models/category';
 
 export default Ember.Service.extend({
   fetchCategory: function () {
-  	console.dir(Category);
-    return Category.create({ 
-    	  name: "name!",
-          cost: "12412",
-        });
+  /*	console.dir(DS.store);
+  	DS.store.createRecord({
+  		name: "TEST",
+  		cost : "123"
+  	});
+  	return DS.store.findAll('category');*/
   }
 });

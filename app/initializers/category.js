@@ -1,4 +1,4 @@
-export function initialize(container, app) {
+export function initialize(app) {
   app.inject('route', 'category', 'service:category');
 }
 

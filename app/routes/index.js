@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model(){
-  	return this.category.fetchCategory()
-  }    
-  
+  beforeModel: function() {
+    this.transitionTo('categories');
+  }
 });
+

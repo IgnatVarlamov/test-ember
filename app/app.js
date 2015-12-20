@@ -13,11 +13,6 @@ App = Ember.Application.extend({
   Resolver
 });
 
-App.ApplicationSerializer = DS.LSSerializer.extend();
-App.ApplicationAdapter = DS.LSAdapter.extend({
-    namespace: 'test-app'
-});
-
 loadInitializers(App, config.modulePrefix);
 
 export default App;
