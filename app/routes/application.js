@@ -8,6 +8,6 @@ export default Ember.Route.extend({
 			      name: 'New Category'
     		 });	
     		 category.save();		 
-		})
+		});
 	}
 });
