@@ -2,8 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model(params){
-		return this.store.find('category', params.id);
-
+		let store = this.store;
+		return this.store.find('category', params.id).then(function(category){
+			return category.get('expenditures').then(function(){
+				return category
+			})
+		});
 		/*return this.category.fetchCategory(params.id, this.store)*/
 	},
 
@@ -25,7 +29,7 @@ export default Ember.Route.extend({
 	      name: controller.get('expName'),
 	      cost: controller.get('expCost'),
 	      date: new Date(),
-	      category: model	      
+	      category: model
 	    });
 	    expenditure.save();
     }

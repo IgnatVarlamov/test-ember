@@ -2,7 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.query('category', {parent: null});
+    //  return this.store.query('category', {parent: null});
+    return this.store.findAll('category').then(function(data){
+      return data.filter(function(item){
+        return !item.get('parent').get('id')
+      })
+    });
   },
 
   actions: {

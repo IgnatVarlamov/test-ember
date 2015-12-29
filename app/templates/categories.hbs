@@ -8,7 +8,12 @@
    {{#each model as |category|}}
      {{#link-to "category" category.id class="list-group-item band-link"}}
        {{category.name}}
-       <span class="pointer glyphicon glyphicon-chevron-right"></span>
+       {{#each category.subCategories as | subCategory|}}
+       {{#link-to "category" subCategory.id class="list-group-item band-link"}}
+       {{subCategory.name}}
+       {{/link-to}}
+       {{/each}}
+       <!-- <span class="pointer glyphicon glyphicon-chevron-right"></span> -->
      {{/link-to}}
    {{/each}}
      </div>
