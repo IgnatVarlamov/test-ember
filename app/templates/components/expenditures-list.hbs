@@ -1,0 +1,7 @@
+{{#each expenditures as |expenditure|}}
+<div class="list-group-item band-link">
+  <span>{{expenditure.name}}</span>
+  <span>cost: {{expenditure.cost}}</span>
+  <span>date: {{format-date expenditure.date}}</span>
+</div>
+{{/each}}
