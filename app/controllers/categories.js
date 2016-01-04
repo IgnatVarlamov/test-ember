@@ -6,6 +6,10 @@ export default Ember.Controller.extend({
   disabled: function() {
     return Ember.isEmpty(this.get('newName'));
   }.property('newName'),
+  pieData: function(){
+    var arr ={data:  [{value:12, color:"red"},{value:11, color:"yellow"},{value:44, color:"green"}]}
+    return arr
+  },
   init() {
         Ember.set(this, 'allCategoriesAtStore', this.store.peekAll('category'));
   },
