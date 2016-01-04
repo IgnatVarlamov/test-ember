@@ -27,7 +27,11 @@ export default Ember.Route.extend({
 	      date: controller.get('expDate'),
 	      category: model
 	    });
-	    expenditure.save();
+	    expenditure.save().then(function(){
+        	controller.set('expName', '');
+					controller.set('expCost', '');
+					controller.set('expDate', '');
+      });;
     }
   }
 });
