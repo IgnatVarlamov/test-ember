@@ -3,12 +3,8 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	model(params){
 		let store = this.store;
-		return this.store.find('category', params.id).then(function(category){
-			return category.get('expenditures').then(function(){
-				return category
-			})
-		});
-		/*return this.category.fetchCategory(params.id, this.store)*/
+		this.store.findAll('expenditure');
+		return this.store.find('category', params.id);
 	},
 
 	actions: {
@@ -28,7 +24,7 @@ export default Ember.Route.extend({
     	let expenditure = this.store.createRecord('expenditure', {
 	      name: controller.get('expName'),
 	      cost: controller.get('expCost'),
-	      date: new Date(),
+	      date: controller.get('expDate'),
 	      category: model
 	    });
 	    expenditure.save();

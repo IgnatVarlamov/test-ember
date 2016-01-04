@@ -5,30 +5,22 @@
     <div class="list-group-item">
       {{input type="text" class="new-band" placeholder="New category" value=newName insert-newline="createSubCategory" }}
       <button class="btn btn-primary btn-sm new-band-button" {{action "createSubCategory" model}}
-        disabled={{disabled}}>Add</button>
+        disabled={{disabledCategory}}>Add</button>
     </div>
-    {{#each model.subCategories as |category|}}
-      {{#link-to "category" category.id class="list-group-item band-link"}}
-        {{category.name}}
-        <span class="pointer glyphicon glyphicon-chevron-right"></span>
-      {{/link-to}}
-    {{/each}}
+    {{categories-list categories=model.subCategories}}
   </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-8">
   <h2>Create Expenditure</h2>
   <div class="list-group">
     <div class="list-group-item">
       {{input type="text" class="new-band" placeholder="New expenditure" value=expName insert-newline="createExpenditure" }}
       {{input type="text" class="new-band" placeholder="Cost" value=expCost insert-newline="createExpenditure" }}
-      <button class="btn btn-primary btn-sm new-band-button" {{action "createExpenditure" model}}>Add</button>
+      {{bootstrap-datepicker value=expDate autoclose=true}}
+      <button class="btn btn-primary btn-sm new-band-button" {{action "createExpenditure" model}}
+      disabled={{disabledExpenditure}}>Add</button>
     </div>
-    {{#each model.expenditures as |expenditure|}}
-    <div class="list-group-item band-link">
-      <span >{{expenditure.name}}</span>
-      <span >{{expenditure.cost}}</span>
-    </div>
-    {{/each}}
+    {{expenditures-list expenditures=model.expenditures}}
   </div>
 </div>
 <div class="col-md-8">

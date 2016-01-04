@@ -5,4 +5,5 @@ export default DS.Model.extend({
 	cost: DS.attr('string'),
 	category: DS.belongsTo('category', { async: false }),
 	date: DS.attr('string')
+	
 });

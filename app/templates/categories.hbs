@@ -5,21 +5,12 @@
      <button class="btn btn-primary btn-sm new-band-button" {{action "createCategory"}}
        disabled={{disabled}}>Add</button>
    </div>
-   {{#each model as |category|}}
-     {{#link-to "category" category.id class="list-group-item band-link"}}
-       {{category.name}}
-       {{#each category.subCategories as | subCategory|}}
-       {{#link-to "category" subCategory.id class="list-group-item band-link"}}
-       {{subCategory.name}}
-       {{/link-to}}
-       {{/each}}
-       <!-- <span class="pointer glyphicon glyphicon-chevron-right"></span> -->
-     {{/link-to}}
-   {{/each}}
-     </div>
-   </div>
-   <div class="col-md-8">
-     <div class="list-group">
+   {{categories-list categories=model}}
+  </div>
+</div>
+
+<div class="col-md-8">
+ <div class="list-group">
    {{outlet}}
-     </div>
+ </div>
 </div>

@@ -11,7 +11,9 @@
     "loader.js": "^3.5.0",
     "qunit": "~1.20.0",
     "bootstrap": "~3.3.5",
-    "ember-localforage-adapter": "https://github.com/genkgo/ember-localforage-adapter.git#~2.2.1"
+    "ember-localforage-adapter": "https://github.com/genkgo/ember-localforage-adapter.git#~2.2.1",
+    "bootstrap-datepicker": "~1.5.1",
+    "moment": "~2.11.0"
   },
   "resolutions": {
     "ember": "2.2.0"
