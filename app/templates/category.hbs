@@ -1,26 +1,59 @@
-<h1>{{model.name}}</h1>
-<div class="col-md-4">
-<h2>Create category</h2>
-  <div class="list-group">
-    <div class="list-group-item">
-      {{input type="text" class="new-band" placeholder="New category" value=newName insert-newline="createSubCategory" }}
-      <button class="btn btn-primary btn-sm new-band-button" {{action "createSubCategory" model}}
-        disabled={{disabledCategory}}>Add</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>name: {{model.name}}</h1>
+      <h1>total: {{model.cost}}</h1>
     </div>
-    {{categories-list categories=model.subCategories}}
+    <div class="col-md-4">
+      <form class="form-inline">
+        <div class="form-group">
+           <label>Filter</label>
+          {{bootstrap-datepicker class="form-control" value=filterDate autoclose=true}}
+          <!-- <button class="btn btn-primary btn-sm new-band-button pull-rig" {{action "filter" model}}>Filtered</button> -->
+        </div>
+      </form>
+    </div>
   </div>
-</div>
-<div class="col-md-8">
-  <h2>Create Expenditure</h2>
-  <div class="list-group">
-    <div class="list-group-item">
-      {{input type="text" class="new-band" placeholder="New expenditure" value=expName insert-newline="createExpenditure" }}
-      {{input type="text" class="new-band" placeholder="Cost" value=expCost insert-newline="createExpenditure" }}
-      {{bootstrap-datepicker value=expDate autoclose=true}}
-      <button class="btn btn-primary btn-sm new-band-button" {{action "createExpenditure" model}}
-      disabled={{disabledExpenditure}}>Add</button>
+  <div class="row">
+    <div class="col-md-4">
+    <h2>Create category</h2>
+      <div class="list-group">
+        <div class="list-group-item">
+            <form class="form-inline">
+              <div class="form-group">
+                {{input type="text" class="form-control" placeholder="New category" value=newName insert-newline="createSubCategory" }}
+                <button class="btn btn-primary btn-sm new-band-button" {{action "createSubCategory" model}}
+                  disabled={{disabledCategory}}>Add</button>
+              </div>
+            </form>
+        </div>
+        {{categories-list categories=model.subCategories}}
+      </div>
     </div>
-    {{expenditures-list expenditures=model.expenditures}}
+    <div class="col-md-7">
+      <h2>Create Expenditure</h2>
+      <div class="list-group">
+        <div class="list-group-item">
+          <form>
+            <div class="form-group">
+              <label>Name</label>
+              {{input type="text" class="form-control" placeholder="New expenditure" value=expName insert-newline="createExpenditure" }}
+            </div>
+            <div class="form-group">
+              <label>Cost</label>
+              {{input type="number" class="form-control" placeholder="Cost" value=expCost insert-newline="createExpenditure" }}
+            </div>
+            <div class="form-group">
+              <label>Date</label>
+              {{bootstrap-datepicker class="form-control" value=expDate autoclose=true}}
+            </div>
+          </form>
+          <button class="btn btn-primary btn-sm new-band-button" {{action "createExpenditure" model}}
+          disabled={{disabledExpenditure}}>Add</button>
+        </div>
+        {{expenditures-list expenditures=filterComputed}}
+      </div>
+    </div>
   </div>
 </div>
 <div class="col-md-8">

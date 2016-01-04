@@ -4,7 +4,7 @@ export default Ember.Route.extend({
 	model(params){
 		let store = this.store;
 		this.store.findAll('expenditure');
-		return this.store.find('category', params.id);
+		return this.store.peekRecord('category', params.id);
 	},
 
 	actions: {
